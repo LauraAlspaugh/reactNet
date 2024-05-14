@@ -15,8 +15,11 @@ export function App() {
         <Outlet />
       </main>
 
-      <footer className="bg-dark text-light text-center p-3 ">
-        Made with 💖 by CodeWorks
+      <footer className=" text-light text-center p-3 ">
+        <p className='fs-5'>
+        <i className='mdi mdi-copyright fs-5'></i>
+by Laura Alspaugh 2024
+        </p>
       </footer>
 
     </div>

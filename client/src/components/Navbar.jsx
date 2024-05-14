@@ -5,10 +5,10 @@ import Login from "./Login.jsx";
 
 export function Navbar() {
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-dark px-3">
+    <nav className="navbar navbar-expand-lg navbar   px-3">
       <Link className="navbar-brand d-flex" to={''}>
         <div className="d-flex flex-column align-items-center">
-          <img alt="logo" src={logo} height="45" />
+          
         </div>
       </Link>
       <button
@@ -26,7 +26,7 @@ export function Navbar() {
         <ul className="navbar-nav me-auto">
           <li>
             <Link to={'About'} className="btn text-success lighten-30 selectable text-uppercase">
-              About
+              {/* About */}
             </Link>
           </li>
         </ul>
