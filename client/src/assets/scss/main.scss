@@ -7,6 +7,10 @@
 body{
   overscroll-behavior: none;
 }
+.home-page{
+  display: flex;
+  justify-content: center;
+}
 
 #app {
   display: flex;
@@ -14,11 +18,26 @@ body{
   min-height: 100vh;
   background-color: var(--body-bg);
 }
+.img-main{
+  height: 400px;
+  width: 600px;
+  object-fit: cover;
+  position: center;
+  border-radius: 7px;
+  border: solid 1px#E6B0AA;
+  display: flex;
+  justify-content: center;
+
+}
 nav{
   background-color: #E6B0AA;
 }
 footer{
   background-color: #E6B0AA;
+}
+.dream-heading{
+  color: #E6B0AA;
+  text-shadow: 2px 1px 3px gray;
 }
 
 main {
