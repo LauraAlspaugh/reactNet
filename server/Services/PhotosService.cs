@@ -1,3 +1,4 @@
+
 namespace reactNet.Services;
 public class PhotosService
 {
@@ -6,5 +7,11 @@ public class PhotosService
     public PhotosService(PhotosRepository photosRepository)
     {
         _photosRepository = photosRepository;
+    }
+
+    internal Photo CreatePhoto(Photo photoData)
+    {
+        Photo photo = _photosRepository.CreatePhoto(photoData);
+        return photo;
     }
 }

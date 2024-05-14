@@ -10,4 +10,22 @@ public class PhotosController : ControllerBase
     {
         _auth0Provider = auth0Provider;
     }
+    [Authorize]
+    [HttpPost]
+    public async Task<ActionResult<Photo>> CreatePhoto([FromBody] Photo photoData)
+    {
+        try
+        {
+            Account userInfo = await _auth0Provider.GetUserInfoAsync<Account>(HttpContext);
+            photoData.CreatorId = userInfo.Id;
+            Photo photo = _photosService.CreatePhoto(photoData);
+            return Ok(photo);
+        }
+        catch (Exception error)
+        {
+
+            return BadRequest(error.Message);
+        }
+
+    }
 }
