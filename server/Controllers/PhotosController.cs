@@ -28,4 +28,49 @@ public class PhotosController : ControllerBase
         }
 
     }
+    [HttpGet]
+    public ActionResult<List<Photo>> GetPhotos()
+    {
+        try
+        {
+            List<Photo> photos = _photosService.GetPhotos();
+            return Ok(photos);
+        }
+        catch (Exception error)
+        {
+
+            return BadRequest(error.Message);
+        }
+    }
+    [HttpGet("{photoId}")]
+    public ActionResult<Photo> GetPhotoById(int photoId)
+    {
+        try
+        {
+            Photo photo = _photosService.GetPhotoById(photoId);
+            return Ok(photo);
+        }
+        catch (Exception error)
+        {
+
+            return BadRequest(error.Message);
+        }
+    }
+    [Authorize]
+    [HttpDelete("{photoId}")]
+    public async Task<ActionResult<string>> DestroyPhoto(int photoId)
+    {
+        try
+        {
+            Account userInfo = await _auth0Provider.GetUserInfoAsync<Account>(HttpContext);
+            string userId = userInfo.Id;
+            string message = _photosService.DestroyPhoto(userId, photoId);
+            return Ok(message);
+        }
+        catch (Exception error)
+        {
+
+            return BadRequest(error.Message);
+        }
+    }
 }
